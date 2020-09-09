@@ -26,7 +26,7 @@ article header {
   padding-right:1em;
 }
 
-.tweet-container {
+.tweet-text-container {
   display:flex;
   border-bottom: 5px solid;
   width:96%;
