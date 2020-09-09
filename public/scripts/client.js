@@ -62,12 +62,20 @@ $(() => {
 
   const renderTweets = (tweets) => {
     $tweets_container = $('#tweets-container');
+    $tweets_container.empty();
 
     for(const tweet of tweets){
       $tweets_container.append(createTweetElement(tweet));
     }
 
   };
+  const loadTweets = ()=>{
+    $.get('/tweets',null)
+    .then((dataArray)=>{
+      renderTweets(dataArray);
+    })
+  }
+
   const $formTweeting = $('.tweeting');
 
   $formTweeting.on('submit', function (event) {
@@ -79,15 +87,17 @@ $(() => {
     // submit serialized data to the server via a POST request to `/api/posts`
     $.post('/tweets', serializedData)
       .then((response) => {
+        $(this).children('div').children('output').val(140);
+        $("output").removeClass("negative");
         $(this).children('textarea').val("");
-
+        loadTweets();
       });  
 
   });
 
-  
 
-  renderTweets(data);
+
+  // renderTweets(data);
   
 
 });
