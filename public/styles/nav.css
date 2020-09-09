@@ -8,6 +8,11 @@ nav{
   padding:1.5em;
 
 
+  position: sticky;
+  top: 0;
+  width:100%;
+
+
 }
 
 nav > span{

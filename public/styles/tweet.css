@@ -1,0 +1,57 @@
+article {
+  margin-top:1em;
+  border: 5px solid;
+  opacity: 70%;
+  transition: opacity 0.8s
+}
+
+article:hover {
+  opacity: 100%;
+  box-shadow: 10px 10px #c5cbe3;
+  transition: opacity 0.5s
+}
+
+article header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  /* align-content: center; */
+}
+
+.userinfo {
+  display: flex;
+  align-items: center;
+}
+.image{
+  padding-right:1em;
+}
+
+.tweet-container {
+  display:flex;
+  border-bottom: 5px solid;
+  width:96%;
+  /* padding-left:1em;
+  padding-right: 1em; */
+  /* margin-right: 1em;
+  margin-left:1em; */
+  /* margin:10px; */
+  margin:0 auto;
+  padding:10px;
+  font-weight: 700;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  /* padding: 1em; */
+}
+.date{
+  padding-left:2em;
+  padding:1em
+}
+.subscribe{
+  color: #1d64e8;
+  
+  padding-right:2em;
+  padding:1em;
+}
