@@ -6,6 +6,8 @@
 
 
 $(() => {
+  
+
   const data = [
     {
       "user": {
@@ -66,7 +68,7 @@ $(() => {
     $tweets_container.empty();
 
     for (const tweet of tweets) {
-      $tweets_container.append(createTweetElement(tweet));
+      $tweets_container.prepend(createTweetElement(tweet));
     }
 
   };
@@ -106,7 +108,7 @@ $(() => {
 
 
 
-  // renderTweets(data);
+  // loadTweets();
 
 
 });
