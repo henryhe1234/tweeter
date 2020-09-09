@@ -1,6 +1,5 @@
 $(document).ready(function () {
   const $tweetText = $("#tweet-text");
-  $("output").removeClass("negative");
 
   $tweetText.on('input', function (event) {
     const maxInput = 140;

@@ -23,7 +23,8 @@ $(() => {
       "user": {
         "name": "Descartes",
         "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
+        "handle": "@rd"
+      },
       "content": {
         "text": "Je pense , donc je suis"
       },
@@ -64,16 +65,16 @@ $(() => {
     $tweets_container = $('#tweets-container');
     $tweets_container.empty();
 
-    for(const tweet of tweets){
+    for (const tweet of tweets) {
       $tweets_container.append(createTweetElement(tweet));
     }
 
   };
-  const loadTweets = ()=>{
-    $.get('/tweets',null)
-    .then((dataArray)=>{
-      renderTweets(dataArray);
-    })
+  const loadTweets = () => {
+    $.get('/tweets', null)
+      .then((dataArray) => {
+        renderTweets(dataArray);
+      })
   }
 
   const $formTweeting = $('.tweeting');
@@ -82,22 +83,30 @@ $(() => {
     event.preventDefault();
 
     const serializedData = $(this).serialize();
-    console.log(serializedData);
+    // console.log(serializedData);
+    const $counter = $('.counter');
+    if (Number($counter.val()) === 140) {
+      
+      alert('you are not inputing anything!');
+    } else if (Number($counter.val()) < 0) {
+      alert('you are inputing more than 140 character');
+    } else {
 
-    // submit serialized data to the server via a POST request to `/api/posts`
-    $.post('/tweets', serializedData)
-      .then((response) => {
-        $(this).children('div').children('output').val(140);
-        $("output").removeClass("negative");
-        $(this).children('textarea').val("");
-        loadTweets();
-      });  
+      $.post('/tweets', serializedData)
+        .then((response) => {
+          $(this).children('div').children('output').val(140);
+          $("output").removeClass("negative");
+          $(this).children('textarea').val("");
+          loadTweets();
+        });
+    }
+
 
   });
 
 
 
   // renderTweets(data);
-  
+
 
 });
