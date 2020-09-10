@@ -89,17 +89,14 @@ $(() => {
     const serializedData = $(this).serialize();
     const $counter = $('.counter');
     if (Number($counter.val()) === 140) {
-      $('#error').slideDown();
       $('#error').text('You type nothing');
-      // return alert('you are not inputing anything!');
-    } else if (Number($counter.val()) < 0) {
       $('#error').slideDown();
+    } else if (Number($counter.val()) < 0) {
       $('#error').text('Too much');
-      // $('#error').slideDown();
+      $('#error').slideDown();
 
-      // return alert('you are inputing more than 140 character');
-    }
-      // $('#error').hide();
+    } else {
+
       $.post('/tweets', serializedData)
         .then((response) => {
           $(this).children('div').children('output').val(140);
@@ -107,7 +104,8 @@ $(() => {
           $(this).children('textarea').val("");
           loadTweets();
         });
-    
+    }
+
 
 
   });
