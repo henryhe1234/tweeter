@@ -88,8 +88,14 @@ $(() => {
 
     const serializedData = $(this).serialize();
     const $counter = $('.counter');
+    const $error = $('#error');
     if (Number($counter.val()) === 140) {
-      $('#error').text('You type nothing');
+      $error.text('You type nothing');
+      const $i1 = $('<i>').addClass('fas fa-flag');
+      const $i2 = $('<i>').addClass('fas fa-flag');
+
+      $i1.prependTo($error);
+      $i2.appendTo($error);
       $('#error').slideDown();
     } else if (Number($counter.val()) < 0) {
       $('#error').text('Too much');
