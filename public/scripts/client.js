@@ -98,7 +98,13 @@ $(() => {
       $i2.appendTo($error);
       $('#error').slideDown();
     } else if (Number($counter.val()) < 0) {
-      $('#error').text('Too much');
+
+      $error.text('Too much');
+      const $i1 = $('<i>').addClass('fas fa-flag');
+      const $i2 = $('<i>').addClass('fas fa-flag');
+
+      $i1.prependTo($error);
+      $i2.appendTo($error);
       $('#error').slideDown();
 
     } else {
