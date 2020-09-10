@@ -1,5 +1,6 @@
 .topheader{
   display:flex;
+  margin: auto;
   justify-content:center;
   flex-direction: column;
   height: 400px;
@@ -18,4 +19,10 @@ background-image: url("https://www.transparenttextures.com/patterns/brilliant.pn
   justify-content: center;
   
   
+}
+@media only screen and (min-width:1024px){
+  .topheader{
+    margin: 64.25px;
+    padding-top: 15px;
+  }
 }

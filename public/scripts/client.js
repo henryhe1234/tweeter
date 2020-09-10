@@ -90,7 +90,7 @@ $(() => {
     const $counter = $('.counter');
     const $error = $('#error');
     if (Number($counter.val()) === 140) {
-      $error.text('You type nothing');
+      $error.text('You typed nothing');
       const $i1 = $('<i>').addClass('fas fa-flag');
       const $i2 = $('<i>').addClass('fas fa-flag');
 
@@ -99,7 +99,7 @@ $(() => {
       $('#error').slideDown();
     } else if (Number($counter.val()) < 0) {
 
-      $error.text('Too much');
+      $error.text('You type more than 140 characters');
       const $i1 = $('<i>').addClass('fas fa-flag');
       const $i2 = $('<i>').addClass('fas fa-flag');
 
