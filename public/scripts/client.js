@@ -85,14 +85,13 @@ $(() => {
     event.preventDefault();
 
     const serializedData = $(this).serialize();
-    // console.log(serializedData);
     const $counter = $('.counter');
     if (Number($counter.val()) === 140) {
       
-      alert('you are not inputing anything!');
+      return alert('you are not inputing anything!');
     } else if (Number($counter.val()) < 0) {
-      alert('you are inputing more than 140 character');
-    } else {
+      return alert('you are inputing more than 140 character');
+    }
 
       $.post('/tweets', serializedData)
         .then((response) => {
@@ -101,14 +100,14 @@ $(() => {
           $(this).children('textarea').val("");
           loadTweets();
         });
-    }
+    
 
 
   });
 
 
 
-  // loadTweets();
+  loadTweets();
 
 
 });

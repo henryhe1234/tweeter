@@ -38,6 +38,7 @@ article header {
   margin:0 auto;
   padding:10px;
   font-weight: 700;
+  word-break:break-word;
 }
 
 footer {
