@@ -8,32 +8,8 @@
 $(() => {
   $('#error').hide();
 
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
 
+  // creating single tweet HTML Element using jQuery
   const createTweetElement = (obj) => {
     const $article = $('<article>');
     const $header = $('<header>')
@@ -62,7 +38,7 @@ $(() => {
     $article.append($header, $div, $footer);
     return $article;
   };
-
+  //render all the tweets in the data base
   const renderTweets = (tweets) => {
     $tweets_container = $('#tweets-container');
     $tweets_container.empty();
@@ -72,6 +48,7 @@ $(() => {
     }
 
   };
+  // AjaxGet request to /tweets to obtain all the tweet in json format
   const loadTweets = () => {
     $.get('/tweets', null)
       .then((dataArray) => {
@@ -80,7 +57,7 @@ $(() => {
   }
 
   const $formTweeting = $('.tweeting');
-
+  //event listener for submitting a tweet
   $formTweeting.on('submit', function (event) {
     event.preventDefault();
     $('#error').slideUp();
@@ -89,6 +66,7 @@ $(() => {
     const serializedData = $(this).serialize();
     const $counter = $('.counter');
     const $error = $('#error');
+
     if (Number($counter.val()) === 140) {
       $error.text('You typed nothing');
       const $i1 = $('<i>').addClass('fas fa-flag');
@@ -108,7 +86,7 @@ $(() => {
       $('#error').slideDown();
 
     } else {
-
+      //Ajax post request to submit tweets as well as getting tweets from database
       $.post('/tweets', serializedData)
         .then((response) => {
           $(this).children('div').children('output').val(140);
@@ -123,7 +101,7 @@ $(() => {
   });
 
 
-
+  //load tweet in the database at the begining
   loadTweets();
   // $('#error').hide();
 

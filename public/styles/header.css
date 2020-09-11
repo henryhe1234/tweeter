@@ -22,7 +22,8 @@ background-image: url("https://www.transparenttextures.com/patterns/brilliant.pn
 }
 @media only screen and (min-width:1024px){
   .topheader{
-    margin: 64.25px;
-    padding-top: 15px;
+    margin: 3.2em;
+    padding-top: 1em;
+    width: 40%;
   }
 }
